@@ -6,7 +6,14 @@ Leia um ano e determine se ele é bissexto, considerando as regras: divisível p
 
 int main(){
     int ano;
-    printf("")
+    printf("Informe o ano: ");
+    scanf("%d", &ano);
+    if ((ano%4 == 0 && ano%100 != 0)|| ano%400 == 0){
+        printf("O ano é bissexto.");
+    }
+    else{
+        printf("O ano não é bissexto?");
+    }
 
     return 0;
 }
