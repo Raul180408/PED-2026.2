@@ -1,0 +1,62 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+  int iris1_a1=123, iris1_a2=456, iris1_a3=789;
+  int iris2_a1=987, iris2_a2=654, iris2_a3=321;
+  int iris3_a1=111, iris3_a2=222, iris3_a3=333;
+  int iris4_a1=444, iris4_a2=555, iris4_a3=666;
+  int a1, a2, a3, verif;
+  
+
+  printf("a1: ");
+  scanf("%d", &a1);
+  printf("a2: ");
+  scanf("%d", &a2);
+  printf("a3: ");
+  scanf("%d", &a3);
+  if (
+    (abs(a1-iris1_a1)<= 5)&&
+    (abs(a2-iris1_a2)<= 5)&&
+    (abs(a3-iris1_a3)<= 5)
+  )
+  {
+    verif +=1;
+  }
+  
+  if (
+    (abs(a1-iris2_a1)<= 5)&&
+    (abs(a2-iris2_a2)<= 5)&&
+    (abs(a3-iris2_a3)<= 5)
+  )
+  {
+    verif +=1;
+  }
+  
+  if (
+    (abs(a1-iris3_a1)<= 5)&&
+    (abs(a2-iris3_a2)<= 5)&&
+    (abs(a3-iris3_a3)<= 5)
+  )
+  {
+    verif +=1;
+  }
+  
+  if (
+    (abs(a1-iris4_a1)<= 5)&&
+    (abs(a2-iris4_a2)<= 5)&&
+    (abs(a3-iris4_a3)<= 5)
+  )
+  {
+    verif +=1;
+  }
+  
+
+  if (verif==0){
+    printf("acesso negado");
+  }
+  else{
+    printf("usuario autenticado com sucesso");
+  }
+  return 0;
+}
