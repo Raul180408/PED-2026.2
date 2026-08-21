@@ -5,7 +5,7 @@ int main(){
     printf("n: ");
     scanf("%d", &n);
     
-    for (int i = 0; i <3 n; i++){
+    for (int i = 0; i < n; i++){
         printf("digite o %dº número: ", i+1);
         scanf("%d", &num);
         ac += num;
