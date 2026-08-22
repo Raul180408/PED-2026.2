@@ -6,6 +6,7 @@ float fah(float c){
 
 int main() {
     float c;
+    
     printf("Digite uma temperatura em ºC: ");
     scanf("%f", &c);
     printf("%fºC são %f fahrenheit.", c, fah(c));

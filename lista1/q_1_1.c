@@ -2,6 +2,7 @@
 
 int main() {
     int a, b;
+    
     printf("Digite um número: ");
     scanf("%d", &a);
     printf("Digite um número: ");
