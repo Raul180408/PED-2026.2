@@ -14,7 +14,6 @@ float area(float raio){
 int main() {
     float raio;
 
-    
     printf("Digite o raio do círculo: ");
     scanf("%f", &raio);
 
