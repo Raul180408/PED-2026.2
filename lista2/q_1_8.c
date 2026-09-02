@@ -13,6 +13,13 @@ int isPalindromo(char palavra[], int inicio, int fim){
 
 int main()
 {
-    printf("%d", isPalindromo("subinoonibus", 0, 11));
+    printf("%d", isPalindromo("subinoonibus", 1, 14));
     return 0;
 }
+/*
+ex: osso -> inicio = 0, fim = 3
+
+    osso[0](o) == osso[3](o) -> ispalindromo("osso",0+1, 3-1)
+    osso[1](s) == osso[2](s) -> ispalindromo("osso",1+1, 2-1)
+        inicio (2) > fim (1) -> 1
+*/
