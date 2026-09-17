@@ -17,12 +17,12 @@ int josefo(int n, int k){
         return 0;
     }
     else{
-        josefo((n-1), k);
-        return (n-k)%n;
+        
+        josefo((n-k)%n+1, k);
     }
 }
 
 int main(){
-    printf("%d", josefo(9, 5));
+    printf("%d", josefo(6, 2));
     return 0;
 }
