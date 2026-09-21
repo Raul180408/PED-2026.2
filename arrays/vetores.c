@@ -6,12 +6,15 @@ Função aloca: recebe um inteiro n e um inteiro preenche.
 Se o valor de preenche for TRUE, aloca um vetor de inteiros com n elementos preenchido com zeros (dica: calloc). 
 Caso contrário, se preenche valer FALSE, aloca um vetor não preenchido de inteiros com n elementos (dica: malloc).
 Retorna o ponteiro para o espaço alocado.
+
 Função imprime: recebe um ponteiro inteiro v e o seu tamanho n e imprime os valores do vetor v usando apenas aritmética de ponteiros. (não é permitido usar a sintaxe de colchetes)
+
 Função preenche: recebe um ponteiro inteiro v, o seu tamanho n, um inteiro valor e um inteiro is_aleatorio.
 Se is_aleatorio valer TRUE, preenche o vetor com valores aleatórios [0...100]
 Veja na documentação como gerar valores aleatórios em C
 Caso contrário, preenche o vetor com valor.  
 Use apenas aritmética de ponteiros
+
 Escreva o programa principal da seguinte forma:
 Declare dois ponteiros inteiros v1 e v2
 Chame a função aloca para v1, com preenche = FALSE e o parâmetro n a sua escolha.
@@ -28,14 +31,24 @@ Imprima v1 e v2 novamente.
 #define FALSE 0
 #define TRUE 1
 
-void aloca(int n, int pr){
+int *aloca(int n, int pr){
     int *vetor;
     if (pr == TRUE){
-        vetor = (int *) calloc(n, sizeof(int));
-        return;
+        return vetor = (int *) calloc(n, sizeof(int));
+        
     }
-    vetor = (int *) malloc(n*sizeof(int));
+    return vetor = (int *) malloc(n*sizeof(int));
 }
+
+void imprime(int *v, int n){
+    for (int i=0; i<n; i++){
+        printf("[%d, ", *v);
+        v++;
+    }
+    printf("]");
+}
+
+
 
 int main() {
     
