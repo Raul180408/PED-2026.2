@@ -43,8 +43,7 @@ int *aloca(int n, int pr){
 void imprime(int *v, int n){
     printf("[");
     for (int i=0; i<n; i++){
-        printf("%d, ", v[i]);
-        v++;
+        printf("%d, ", *(v+i));
     }
     printf("]\n\n");
 }
@@ -54,27 +53,31 @@ void preenche(int *v, int tamanho, int valor, int is_aleatorio){
         // rand() % 100;
         v = (int *) realloc(v, 100*sizeof(int));
         for (int i=0; i<100 ; i++){
-            *v = rand() % 100;
-            v++;
+            *(v+i) = rand() % 100;
         }
         return;
     }
-    
     v = (int *) realloc(v, (tamanho+1)*sizeof(int));
-    v++;
-    *v = valor;
+    *(v+(tamanho+1)) = valor;
     
 }
 
 int main() {
     int *v1, *v2;
-    v1 = (int *) calloc(0, sizeof(int));
-    v2 = (int *) calloc(0, sizeof(int));
-    preenche(v1, 0, 18, FALSE);
-    preenche(v2, 0, 18, TRUE);
 
-    imprime(v1, 1);
-    imprime(v2, 100);
+    v1 = aloca(10, FALSE);
+    v2 = aloca(10, TRUE);
+
+    imprime(v1, 10);
+    imprime(v2, 10);
+
+    printf("\n-----------\n\n");
+
+    preenche(v1, 2, 18, FALSE);
+    preenche(v2, 10, 18, TRUE);
+
+    imprime(v1, 10);
+    imprime(v2, 10);
     
     
     return 0;
