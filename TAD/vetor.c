@@ -61,14 +61,14 @@ void show(Vetor *v){
 /*slice(v, x0, x1) — retorna um novo Vetor contendo cópias dos elementos de v no intervalo [x0, x1]. O novo vetor deve ser criado com
 tamanho_alocado igual exatamente ao número de elementos copiados (sem espaço extra).
 */
-Vetor slice(int *v, int x0, int x1){
-    Vetor novo;
+Vetor *slice(Vetor *v, int x0, int x1){
+    Vetor *novo = (Vetor *) malloc(sizeof(Vetor));
     int qtd = x1 - x0;
-    novo.tamanho_alocado = qtd;
-    novo.tamanho_ocupado = qtd;
-    novo.dados = malloc(qtd*sizeof(int));
-    for (int i=0; i < qtd; i++){
-        novo.dados[i] = *(v+i);
+    novo->tamanho_alocado = qtd;
+    novo->tamanho_ocupado = qtd;
+    novo->dados = (int *) malloc(qtd*sizeof(int));
+    for (int i=x0; i < x1; i++){
+        novo->dados[i-x0] = *(v+i)->dados;
     }
     return novo;
 
