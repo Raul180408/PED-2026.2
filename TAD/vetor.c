@@ -30,39 +30,6 @@ Dica: comece pela definição do tipo e pelas assinaturas das quatro funções n
 Depois, implemente cada operação em vetor.c, usando realloc para o crescimento em append. Por fim, escreva um main.c de teste que crie um vetor, insira alguns valores com append, exiba o resultado com show, experimente slice e pop, e confira se os tamanhos alocado e ocupado se comportam como esperado em cada etapa.
 
 */
-/*
-#include <stdio.h>
-#include <stdlib.h>
-#include "vetor.h"
-
-void append(Vetor *v, int valor){
-    if (v->tamanho_ocupado == v->tamanho_alocado){
-        v = (int *) realloc(v, (2*v->tamanho_alocado)*sizeof(int) );
-        v->tamanho_alocado *= 2;
-    }
-    v->dados[(v->tamanho_ocupado+1)] = valor;
-    v->tamanho_ocupado++;
-}
-
-void show(Vetor *v){
-    printf("[");
-    for (int i=0; i<(v->tamanho_ocupado) ; i++){
-        printf(" %d, ", v->dados[i]);
-    }
-    printf("]");
-
-}
-
-void slice(Vetor *v, int x0, int x1){
-    
-
-}
-
-void pop(Vetor *v){
-
-
-}
-*/
 #include <stdio.h>
 #include <stdlib.h>
 #include "vetor.h"
@@ -80,8 +47,7 @@ void append(Vetor *v, int valor)
 }
 
 
-void show(Vetor *v)
-{
+void show(Vetor *v){
     printf("[");
     for (int i = 0; i < v->tamanho_ocupado; i++) {
         printf("%d", v->dados[i]);
@@ -92,27 +58,24 @@ void show(Vetor *v)
     printf("]\n");
 }
 
-
-Vetor *slice(Vetor *v, int x0, int x1) // ???
-{
+/*slice(v, x0, x1) — retorna um novo Vetor contendo cópias dos elementos de v no intervalo [x0, x1]. O novo vetor deve ser criado com
+tamanho_alocado igual exatamente ao número de elementos copiados (sem espaço extra).
+*/
+Vetor slice(int *v, int x0, int x1){
     Vetor novo;
-
-    int qtd = x1 - x0 + 1; // a diferença entre os índices + 1 para incluir o elemento final já que vai de 0 até n-1
-
+    int qtd = x1 - x0;
     novo.tamanho_alocado = qtd;
     novo.tamanho_ocupado = qtd;
-
-    novo.dados = malloc(qtd * sizeof(int));
-
-    for (int i = 0; i < qtd; i++) {
-        novo.dados[i] = v->dados[x0 + i];
+    novo.dados = malloc(qtd*sizeof(int));
+    for (int i=0; i < qtd; i++){
+        novo.dados[i] = *(v+i);
     }
-    
     return novo;
+
 }
 
-void pop(Vetor *v)
-{
+
+void pop(Vetor *v){
     if (v->tamanho_ocupado > 0) {
         v->tamanho_ocupado--;
     }

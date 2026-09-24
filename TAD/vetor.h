@@ -9,7 +9,7 @@ typedef struct {
 
 void append(Vetor *v, int valor);
 void show(Vetor *v);
-Vetor *slice(Vetor *v, int x0, int x1); // ???
+Vetor *slice(Vetor *v, int x0, int x1); 
 void pop(Vetor *v);
 
 #endif
