@@ -60,7 +60,24 @@ remover(l, pos): remove o nó da posição pos,
 redirecionando os ponteiros, liberando sua memória com free e atualizando tamanho.
 */
 
-void re
+void remover(Lista *l, int pos){
+    No *atual = l->cabeca, *anterior;
+    for (int i=0; i< pos && atual != NULL; i++){
+        anterior = atual;
+        atual = atual->proximo;
+    }
+    if (atual == NULL){
+        printf("posição inválida\n");
+        exit(1);
+    }
+    if (pos == 0) {
+        l->cabeca = atual->proximo;
+    } else {
+        anterior->proximo = atual->proximo;
+    }
+    free(atual);
+    l->tamanho--;
+}
 
 // void remover(Lista *l, int pos){
 //     No *atual = l->cabeca;
