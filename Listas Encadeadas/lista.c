@@ -60,38 +60,7 @@ remover(l, pos): remove o nó da posição pos,
 redirecionando os ponteiros, liberando sua memória com free e atualizando tamanho.
 */
 
-void remover(Lista *l, int pos){
-    No *atual = l->cabeca, *anterior;
-    for (int i=0; i< pos && atual != NULL; i++){
-        anterior = atual;
-        atual = atual->proximo;
-    }
-    if (atual == NULL){
-        printf("posição inválida\n");
-        exit(1);
-    }
-    if (pos == 0) {
-        l->cabeca = atual->proximo;
-    } else {
-        anterior->proximo = atual->proximo;
-    }
-    free(atual);
-    l->tamanho--;
-}
 
-// void remover(Lista *l, int pos){
-//     No *atual = l->cabeca;
-//     for (int i=0; i< pos && atual != NULL; i++){
-//         atual = atual->proximo;
-//     }
-//     if (atual == NULL){
-//         printf("posição inválid\n");
-//         exit(1);
-//     }
-//     free(atual->proximo);
-//     free(atual);
-//     l->tamanho--;
-// }
 
 /*
 liberar(l): libera todos os nós restantes ao final do programa.
@@ -101,17 +70,10 @@ void liberar(Lista *l){
     No *atual = l->cabeca, *prox;
     for (int i=0; i < l->tamanho; i++){
         prox = atual->proximo;
-        free(atual);
-        atual = prox;
+        
     }
-}
+    for (i; i>0; i--){
+        
+    }
 
-// void liberar(Lista *l){
-//     No *atual = l->cabeca, *prox;
-//     for (int i=0; i < l->tamanho; i++){
-//         prox = atual->proximo;
-//         free(atual->proximo);
-//         free(atual);
-//         atual = prox;
-//     }
-// }
+}
