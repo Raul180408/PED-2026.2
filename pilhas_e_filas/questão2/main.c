@@ -22,6 +22,7 @@ int main()
     scanf("%s", exp);
     Pilha *p = criar(100);
     for (int i=0; i<strlen(exp); i++){
+        
         if (exp[i] == '(' || exp[i] == '[' || exp[i] == '{'){
             push(p, exp[i]);
         } 
@@ -48,7 +49,11 @@ int main()
             ){
                 pop(p);
             }
+            else{
+                balanceada = FALSE;
+            }
         }
+        
     }
 
     if (balanceada){
